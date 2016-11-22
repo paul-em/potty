@@ -1,11 +1,8 @@
 {
   "name": "toilette",
   "version": "1.0.0",
-  "description": "This program is used to control our toilette. Sounds weird? It is.",
+  "description": "",
   "main": "index.js",
-  "engines": {
-    "node": ">=6.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +12,7 @@
     "dotenv": "^2.0.0",
     "mpg321": "^0.1.5",
     "node-hue-api": "^2.3.0",
+    "wifi-control": "^2.0.0",
     "wireless": "^0.3.2"
   }
 }

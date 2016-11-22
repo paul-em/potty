@@ -1,8 +1,8 @@
 
 
 const wireless = require('./wireless');
-const nas = reuqire('./nas');
-const hue = reuqire('./hue');
+const nas = require('./nas');
+const hue = require('./hue');
 const playsound = require('./playsound');
 
 playsound.playBootSong();
