@@ -6,14 +6,14 @@ const bootSong = 'boot.mp3';
 
 let bootPlaying = false;
 let playlist, playPos = 0;
+const bootSongPlayer = mpg321().remote();
 
 
 exports.playBootSong = () => {
   console.log('Playsound: playing bootsong');
-  const player = mpg321().remote();
   bootPlaying = true;
-  player.play(bootSong);
-  player.on('end', () => {
+  bootSongPlayer.play(path.resolve(soundsDir, bootSong));
+  bootSongPlayer.on('end', () => {
     if (bootPlaying) {
       console.log('bootsong end!');
       exports.playBootSong();
@@ -24,6 +24,7 @@ exports.playBootSong = () => {
 exports.play = (songs) => {
   console.log('Playsound: playing songs', songs);
   bootPlaying = false;
+  bootSongPlayer.stop();
   playlist = songs;
   randomizeList();
   playNext();
