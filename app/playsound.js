@@ -8,18 +8,9 @@ let bootPlaying = false;
 let playlist, playPos = 0;
 
 
-const player = mpg321().remote();
-player.on('end', function () {
-  if (bootPlaying) {
-    console.log('bootsong end!');
-    exports.playBootSong();
-  } else {
-    playNext();
-  }
-});
-
-
 exports.playBootSong = () => {
+  console.log('Playsound: playing bootsong');
+  const player = mpg321().remote();
   bootPlaying = true;
   player.play(bootSong);
   player.on('end', () => {
@@ -31,6 +22,7 @@ exports.playBootSong = () => {
 };
 
 exports.play = (songs) => {
+  console.log('Playsound: playing songs', songs);
   bootPlaying = false;
   playlist = songs;
   randomizeList();
@@ -38,16 +30,23 @@ exports.play = (songs) => {
 };
 
 function playNext() {
+  const player = mpg321().remote();
   playPos++;
   if (playPos === playlist.length) {
     playPos = 0;
     randomizeList();
   }
   try {
+    console.log('Playsound: playing', path.resolve(soundsDir, playlist[playPos]));
     player.play(path.resolve(soundsDir, playlist[playPos]));
   } catch (e) {
+    console.log(e);
     playNext();
   }
+
+  player.on('end', function () {
+    playNext();
+  });
 }
 
 

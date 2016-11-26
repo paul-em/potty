@@ -1,0 +1,12 @@
+{
+  "hue": {
+    "host": "192.168.0.6",
+    "user": "7Wct9CD2WhcTlfPnjeq2dmnAYOyXuTN9-TskxYTlx",
+    "light": 1
+  },
+  "nas": {
+    "host": "192.168.0.8",
+    "user": "nas",
+    "password": "your-password-here"
+  }
+}

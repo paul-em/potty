@@ -10,9 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^2.0.0",
+    "ftp": "^0.3.10",
     "mpg321": "^0.1.5",
-    "node-hue-api": "^2.3.0",
-    "wifi-control": "^2.0.0",
-    "wireless": "^0.3.2"
+    "node-hue-api": "^2.3.0"
   }
 }
